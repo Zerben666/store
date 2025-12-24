@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace属性：用于指定当前的映射文件和哪个接口进行映射，需要指定接口的文件路径，需要标注包的完整路径接口-->
+<mapper namespace="com.cy.store.mapper.ProductMapper">
+    <!--自定义映射规则：resultMap标签来完成映射规则的定义-->
+    <resultMap id="ProductEntityMap" type="com.cy.store.entity.Product">
+        <id column="id" property="id"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="item_type" property="itemType"/>
+        <result column="title" property="title"/>
+        <result column="sell_point" property="sellPoint"/>
+        <result column="price" property="price"/>
+        <result column="num" property="num"/>
+        <result column="image" property="image"/>
+        <result column="status" property="status"/>
+        <result column="priority" property="priority"/>
+    </resultMap>
+
+    <!-- 查询热销商品的前四名 -->
+    <select id="findHotList" resultMap="ProductEntityMap">
+        SELECT * FROM t_product WHERE status=1
+        ORDER BY priority DESC LIMIT 0,4
+    </select>
+
+    <!-- 根据商品id查询商品详情-->
+    <select id="findById" resultMap="ProductEntityMap">
+        SELECT * FROM t_product WHERE id=#{id}
+    </select>
+</mapper>

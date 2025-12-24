@@ -1,0 +1,7 @@
+com\cy\store\mappper\DistrictMapperTests.class
+com\cy\store\StoreApplicationTests.class
+com\cy\store\mappper\AddressMapperTests.class
+com\cy\store\service\DistrictServiceTests.class
+com\cy\store\service\UserServiceTests.class
+com\cy\store\mappper\UserMapperTests.class
+com\cy\store\service\AddressServiceTests.class
